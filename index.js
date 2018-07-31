@@ -2,7 +2,7 @@ var Connection = require('./lib/connection');
 var Parser = require('./lib/parser');
 var tools = require('./lib/tools');
 var createMessage = require('./lib/creator.js');
-var dptStore = require('.lib/dptstore.js');
+var dptStore = require('./lib/dptstore.js');
 
 exports.Connection = Connection;
 exports.Parser = Parser;
