@@ -61,7 +61,7 @@ if(!host || !port) {
       });
       parser.on('read', function(src, dest) {
         console.log('Read from '+src+' to '+dest);
-    });
+      });
 
     } else {
       console.error('[ERROR] '+err);
