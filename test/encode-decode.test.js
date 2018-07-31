@@ -16,7 +16,8 @@ describe('Encode-Decode-Loop', function() {
   describe('Encode values and decode it with given DPT', function() {
     //TODO: DTP 2,3,4,5,6,8,10,11,12,232
     let tests = [
-        {type: 'DPT7', value: 31247}
+        {type: 'DPT7', value: 31247},
+        {type: 'DPT14', value: 30.5}
     ]
     tests.forEach(function(test) {
         it('should encode ' + test.type + ' value and decode it again', function() {
