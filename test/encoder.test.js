@@ -173,4 +173,33 @@ describe('Encoder', function() {
     });
   });
 
+  describe('DPT14 encode', function() {
+    let buf2str = function (buf) {
+      return buf.toString('hex').toUpperCase();
+    }
+
+    it('should encode DPT14 value', function() {
+      var buffer = enc.encode('DPT14',40);
+      assert.equal(buf2str(buffer), '42200000');
+
+      buffer = enc.encode('DPT14',35748613549);
+      assert.equal(buf2str(buffer), '51052C89');
+    });
+
+    it('should encode DPT14 floating value', function() {
+      var buffer = enc.encode('DPT14',20.2);
+      assert.equal(buf2str(buffer), '41A1999A');
+
+      buffer = enc.encode('DPT14',423.2584);
+      assert.equal(buf2str(buffer), '43D3A113');
+    });
+
+    it('should encode DPT14 negative value', function() {
+      var buffer = enc.encode('DPT14',-8787.84);
+      assert.equal(buf2str(buffer), 'C6094F5C');
+
+      buffer = enc.encode('DPT14',-14);
+      assert.equal(buf2str(buffer), 'C1600000');
+    });
+  });
 });
