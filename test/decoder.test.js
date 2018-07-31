@@ -5,12 +5,12 @@ var assert = require('assert'),
 
 var enc = null;
 
-describe('Automatic Decoder', function() {
+describe('Decoder', function() {
 
   before(function() {
     enc = new Decoder();
   });
-  describe('DPT1', function() {
+  describe('Assuming decoder on DPT1', function() {
     it('should decode DPT1 value 1', function() {
       const buf = Buffer.from([65]);
       enc.decode(8, buf, function(err, type, value) {
@@ -29,7 +29,7 @@ describe('Automatic Decoder', function() {
     });
   });
 
-  describe('DPT5', function() {
+  describe('Assuming decoder on DPT5', function() {
     it('should decode DPT5 value', function() {
       const buf = Buffer.alloc(1);
       buf.writeUInt8(150, 0);
@@ -49,7 +49,7 @@ describe('Automatic Decoder', function() {
     });
   });
 
-  describe('DPT9', function() {
+  describe('Assuming decoder on DPT9', function() {
     it('should decode DPT9 float value - exponent4', function() {
       const buf = Buffer.alloc(2);
       buf.writeUInt8(0xA3, 0);
@@ -105,7 +105,7 @@ describe('Automatic Decoder', function() {
       });
     });
   });
-  describe('UNKN', function() {
+  describe('Assuming decoder on UNKN', function() {
     it('should decode DPT13 32bit integer value', function() {
       const buf = Buffer.alloc(4);
       buf.writeInt32BE(0x6eadbeef, 0);
@@ -130,7 +130,7 @@ describe('Automatic Decoder', function() {
       });
     });
   });
-  describe('Automatic decoder should be equal to manual decoder', function() {
+  describe('Assuming decoder should be equal to manual decoder', function() {
     it('DPT1 should be equal', function() {
       const data = Buffer.from([65]);
       let err1,
