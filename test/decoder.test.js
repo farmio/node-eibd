@@ -1,7 +1,8 @@
 'use strict';
 
 var assert = require('assert'),
-    Decoder = require('../lib/decoder.js');
+    Decoder = require('../lib/decoder.js'),
+    tools = require('../lib/tools.js');
 
 var enc = null;
 
@@ -132,6 +133,7 @@ describe('Decoder', function() {
   });
   describe('Assuming decoder should be equal to manual decoder', function() {
     it('DPT1 should be equal', function() {
+      const dpt = tools.dptParse('DPT1');
       const data = Buffer.from([65]);
       let err1,
         type1,
@@ -141,13 +143,14 @@ describe('Decoder', function() {
         type1 = type;
         value1 = value;
       });
-      enc.decodeAs('DPT1', data, function(err, type, value) {
+      enc.decodeAs(dpt, data, function(err, type, value) {
         assert.equal(err1, err);
         assert.equal(type1, type);
         assert.equal(value1, value);
       });
     });
     it('DPT5 should be equal', function() {
+      const dpt = tools.dptParse('DPT5');
       const buf = Buffer.alloc(1);
       buf.writeUInt8(150, 0);
       let err1,
@@ -158,13 +161,14 @@ describe('Decoder', function() {
         type1 = type;
         value1 = value;
       });
-      enc.decodeAs('DPT5', buf, function(err, type, value) {
+      enc.decodeAs(dpt, buf, function(err, type, value) {
         assert.equal(err1, err);
         assert.equal(type1, type);
         assert.equal(value1, value);
       });
     });
     it('DPT9 should be equal', function() {
+      const dpt = tools.dptParse('DPT9');
       const buf = Buffer.alloc(2);
       buf.writeUInt8(0xA3, 0);
       buf.writeUInt8(0xB5, 1);
@@ -176,7 +180,7 @@ describe('Decoder', function() {
         type1 = type;
         value1 = value;
       });
-      enc.decodeAs('DPT9', buf, function(err, type, value) {
+      enc.decodeAs(dpt, buf, function(err, type, value) {
         assert.equal(err1, err);
         assert.equal(type1, type);
         assert.equal(value1, value);

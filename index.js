@@ -9,5 +9,5 @@ exports.Parser = Parser;
 exports.createMessage = createMessage;
 exports.str2addr = tools.str2addr;
 exports.addr2str = tools.addr2str;
-exports.dpt2MainDPT = tools.dpt2MainDPT;
+exports.dptParse = tools.dptParse;
 exports.dptStore = dptStore;
