@@ -15,7 +15,7 @@ describe('Encode-Decode-Loop', function() {
     dec = new Decoder();
   });
   describe('Encode values and decode it with given DPT', function() {
-    //TODO: DTP 4,5,6,8,10,11,12,232
+    //TODO: DTP 5,6,8,10,11,12,232
     let tests = [
         {type: 'DPT1', values: [0, 1, true, false]},
         {type: 'DPT2', values: [{control: true, value: true}, {control: true, value: false}, {control: false, value: true}, {control: false, value: false}]},
