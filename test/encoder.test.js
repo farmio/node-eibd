@@ -63,7 +63,21 @@ describe('Encoder', function() {
     });
   });
 
-   describe('DPT5 encode', function() {
+  describe('DPT4 encode', function() {
+    it('should encode DPT4.001 value', function() {
+      const dpt = tools.dptParse('DPT4.001');
+      var buffer = enc.encode(dpt,'a');
+      assert.equal(buffer.readUInt8(0), 0x61);
+    });
+
+    it('should encode DPT4.002 value', function() {
+      const dpt = tools.dptParse('DPT4.002');
+      var buffer = enc.encode(dpt,'ö');
+      assert.equal(buffer.readUInt8(0), 0xF6);
+    });
+  });
+
+  describe('DPT5 encode', function() {
     const dpt = tools.dptParse('DPT5');
     it('should encode DPT5 value', function() {
       var buffer = enc.encode(dpt,40);
