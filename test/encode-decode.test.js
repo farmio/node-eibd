@@ -22,7 +22,13 @@ describe('Encode-Decode-Loop', function() {
         {type: 'DPT3', values: [{control: true, step: 0}, {control: true, step: 2}, {control: true, step: 7}, {control: false, step: 0}, {control: false, step: 5}]},
         {type: 'DPT4.001', values: ['a', 'A', '&']},
         {type: 'DPT4.002', values: ['a', 'A', '&']},
+        {type: 'DPT5', values: [0, 1, 15, 32, 50, 100, 128, 139, 200, 230, 255]},
+        {type: 'DPT5.001', values: [0, 0.4, 100]}, // 15, 32, 50
+        {type: 'DPT5.002', values: [0, 2.8, 360]}, // integer ? ets value
+        {type: 'DPT6', values: [-128, -5, 0, 13, 127]},
+        {type: 'DPT6.020', values: [{a: true, b: false, c: true, d: false, e: true, mode: 1}]},
         {type: 'DPT7', values: [31247]},
+        {type: 'DPT8', values: [-32768, -50, 0, 559, 32767]},
         {type: 'DPT14', values: [30.5]}
     ]
     tests.forEach(function(test) {
