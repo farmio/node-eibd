@@ -1,6 +1,6 @@
 Expected data formats for supported DPTs
 
-DPT 1: boolean
+DPT 1: {boolean}
 
 DPT 2: Object { control: {boolean}, value: {boolean} }
 
@@ -28,5 +28,20 @@ DPT 6.020: Object { a: {boolean}, b: {boolean}, c: {boolean}, d: {boolean}, e: {
 DPT 7: {number}
     0..65535
 
-DPT 8:
+DPT 8: {number}
+    -32768..32768
+
+DPT 9: {number}
+    -671088.64..670760.96
+
+DPT 10: Object { hour: {number}, minutes: {number}, seconds: {number}, day?: {number} }
+    day: 0: no day, 1: Monday, 7: Sunday
+
+DPT 11: Date {year, month, date}
     
+DPT 12: {number}
+    0...4 294 967 295
+
+DPT 13: {number}
+    -2 147 483 648 ... 2 147 483 647
+
