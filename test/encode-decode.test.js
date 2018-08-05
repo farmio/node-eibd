@@ -29,6 +29,11 @@ describe('Encode-Decode-Loop', function() {
         {type: 'DPT6.020', values: [{a: true, b: false, c: true, d: false, e: true, mode: 1}]},
         {type: 'DPT7', values: [31247]},
         {type: 'DPT8', values: [-32768, -50, 0, 559, 32767]},
+        {type: 'DPT9', values: [-670105.6, -1.2, 0, 15.4, 670760.96]}, // breaking: 900; 900.2
+        {type: 'DPT10', values: [{hour: 1, minutes: 1, seconds: 1, day: 1}, {hour: 23, minutes: 59, seconds: 2, day: 0}]},
+        {type: 'DPT11', values: [new Date(2018, 7, 4)]},
+        {type: 'DPT12', values: [0, 14, 4294967295]},
+        {type: 'DPT13', values: [-2147483648, 0, 2147483647]},
         {type: 'DPT14', values: [30.5]}
     ]
     tests.forEach(function(test) {

@@ -156,18 +156,19 @@ describe('Encoder', function() {
   describe('DPT10 encoder', function() {
     const dpt = tools.dptParse('DPT10');
     it('should encode DPT10 value', function(done) {
+      const dayOfTheWeek = 2; // Tuesday -> 010
+      const hour = 10; // 10 AM  ->  01010
+      const minutes = 43;
+      const seconds = 5;
+      const time = {hour: hour, minutes: minutes, seconds: seconds, day: dayOfTheWeek}
+      const buffer = enc.encode(dpt, time);
+      const value0 = buffer.readUInt8(0); // Read the first octect
+      const value1 = buffer.readUInt8(1); // Read the second octect
+      const value2 = buffer.readUInt8(2);  // Read the third octect
 
-      var dayOfTheWeek = 2; // Tuesday -> 010
-      var hour = 10; // 10 AM  ->  01010
-      var minutes = 43;
-      var seconds = 5;
-
-      var buffer = enc.encode(dpt, [dayOfTheWeek, hour, minutes, seconds]);
-      var value0 = buffer.readUInt8(0); // Read the first octect
-      var value1 = buffer.readUInt8(1); // Read the second octect
-      var value2 = buffer.readUInt8(2);  // Read the third octect
-
-      assert.equal(value0, 0x4A); // 01001010 = 4A
+      //assert.equal(value0, 0x4A); // 01001010 = 4A
+      assert.equal(value0 >>> 5, 0b010);
+      assert.equal(value0 & 0b11111, 0b01010);
       assert.equal(value1, 0x2B); // 43 = 00101011 = 2B
       assert.equal(value2, 0x05); // 5 = 00000101 = 05
 
@@ -183,7 +184,7 @@ describe('Encoder', function() {
       var month = 10; // 10 day  -> A
       var year = 14; // 14 -> 0xE -> 00001110
 
-      var buffer = enc.encode(dpt, [day, month, year]);
+      var buffer = enc.encode(dpt, new Date(2000 + year, month -1, day));
       var value0 = buffer.readUInt8(0); // Read the first octect
       var value1 = buffer.readUInt8(1); // Read the second octect
       var value2 = buffer.readUInt8(2);  // Read the third octect
