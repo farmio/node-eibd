@@ -45,3 +45,13 @@ DPT 12: {number}
 DPT 13: {number}
     -2 147 483 648 ... 2 147 483 647
 
+DPT 14: {number}
+    32-bit Float
+
+DPT 15: Object { accessCode: {number}, readError: {boolean}, permission: {boolean}, readDirection?: {boolean}, encryption: {boolean}, index: {number} }
+    accessCode: 0...999999
+    readError: 0: no Error, 1: reading code not successfull
+    permission: 0: not accepted, 1: accepted
+    readDirection: 0: left to right (default), 1: right to left
+    encryption: 0: no, 1: yes
+    index: 0...15 Index of access identification code (future use)
