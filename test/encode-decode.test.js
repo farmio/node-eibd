@@ -34,7 +34,8 @@ describe('Encode-Decode-Loop', function() {
         {type: 'DPT11', values: [new Date(2018, 7, 4)]},
         {type: 'DPT12', values: [0, 14, 4294967295]},
         {type: 'DPT13', values: [-2147483648, 0, 2147483647]},
-        {type: 'DPT14', values: [30.5]}
+        {type: 'DPT14', values: [30.5]},
+        {type: 'DPT15', values: [{accessCode: 759321, readError: false, permission: true, readDirection: false, encryption: false, index: 3}]},
     ]
     tests.forEach(function(test) {
         it('should encode ' + test.type + ' value and decode it again', function() {
